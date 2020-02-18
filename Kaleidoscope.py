@@ -21,12 +21,6 @@ class DragImage:
             #self.rect.center = pg.mouse.get_pos()
         surface.blit(self.image,self.rect)
 
-def main(Surface,Player):
-    game_event_loop(Player)
-    Surface.fill(0)
-    Player.update(Surface)
-
-
 def game_event_loop(Player):
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
@@ -37,6 +31,11 @@ def game_event_loop(Player):
             Player.click = False
         elif event.type == pg.QUIT:
             pg.quit(); sys.exit()
+
+def main(Surface,Player):
+    game_event_loop(Player)
+    Surface.fill(0)
+    Player.update(Surface)
 
 if __name__ == "__main__":
     os.environ['SDL_VIDEO_CENTERED'] = '1'
